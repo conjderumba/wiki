@@ -57,6 +57,8 @@
     <link rel="stylesheet" href="../assets/fonts/material-icons.css">
     
     
+      <link rel="stylesheet" href="../stylesheets/mkdocs-material-dark-theme/extra.css">
+    
     
       
     
@@ -352,32 +354,31 @@
 <p>This section contains some tricks, procedures and configurations for some AWS services</p>
 <h2 id="s3">S3</h2>
 <h3 id="mount-s3-bucket-on-linux">Mount S3 Bucket on linux</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Install prerequisites</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e"># Install prerequisites</span>
 yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel -y
 
-<span class="c1"># Create mountpoint</span>
-<span class="nb">cd</span> /srv
+<span style="color: #75715e"># Create mountpoint</span>
+<span style="color: #f8f8f2">cd</span> /srv
 mkdir s3fs
-<span class="nb">cd</span> s3fs/
+<span style="color: #f8f8f2">cd</span> s3fs/
 
-<span class="c1"># Obtain s3fs-fuse.</span>
+<span style="color: #75715e"># Obtain s3fs-fuse.</span>
 sudo amazon-linux-extras install epel
 sudo yum install s3fs-fuse
 </code></pre></div>
 
-
 <h2 id="cloudformation">Cloudformation</h2>
 <h3 id="curl-for-cancel-jobs">Curl for cancel jobs</h3>
 <p>In a Lambda python code you can print this curl to cancel the CloudFormation Stack, in case it remains in a <code>IN PROGRESS</code> state</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># CF Parameters to build the response in case of Stack blocking</span>
-<span class="n">ServiceToken</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s1">&#39;ServiceToken&#39;</span><span class="p">]</span>
-<span class="n">StackId</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s1">&#39;StackId&#39;</span><span class="p">]</span>
-<span class="n">RequestId</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s1">&#39;RequestId&#39;</span><span class="p">]</span>
-<span class="n">LogicalResourceId</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s1">&#39;LogicalResourceId&#39;</span><span class="p">]</span>
-<span class="n">ResponseURL</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s1">&#39;ResponseURL&#39;</span><span class="p">]</span>
-<span class="c1"># CloudFormation CURL response. Uncomment while testing</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;CloudFormation CURL response. Uncomment while testing&#39;</span><span class="p">)</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;curl -H &#39;Content-Type: &#39;&#39;&#39; -X PUT -d &#39;{ </span><span class="se">\&quot;</span><span class="s2">Status</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">SUCCESS</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">PhysicalResourceId</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">physical_resource_id</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">StackId</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">StackId</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">RequestId</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">RequestId</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">LogicalResourceId</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">LogicalResourceId</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">}&#39; &#39;&quot;</span> <span class="o">+</span> <span class="n">ResponseURL</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">)</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e"># CF Parameters to build the response in case of Stack blocking</span>
+<span style="color: #f8f8f2">ServiceToken</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">event[</span><span style="color: #e6db74">&#39;ServiceToken&#39;</span><span style="color: #f8f8f2">]</span>
+<span style="color: #f8f8f2">StackId</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">event[</span><span style="color: #e6db74">&#39;StackId&#39;</span><span style="color: #f8f8f2">]</span>
+<span style="color: #f8f8f2">RequestId</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">event[</span><span style="color: #e6db74">&#39;RequestId&#39;</span><span style="color: #f8f8f2">]</span>
+<span style="color: #f8f8f2">LogicalResourceId</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">event[</span><span style="color: #e6db74">&#39;LogicalResourceId&#39;</span><span style="color: #f8f8f2">]</span>
+<span style="color: #f8f8f2">ResponseURL</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">event[</span><span style="color: #e6db74">&#39;ResponseURL&#39;</span><span style="color: #f8f8f2">]</span>
+<span style="color: #75715e"># CloudFormation CURL response. Uncomment while testing</span>
+<span style="color: #f8f8f2">logger</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">info(</span><span style="color: #e6db74">&#39;CloudFormation CURL response. Uncomment while testing&#39;</span><span style="color: #f8f8f2">)</span>
+<span style="color: #f8f8f2">logger</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">info(</span><span style="color: #e6db74">&quot;curl -H &#39;Content-Type: &#39;&#39;&#39; -X PUT -d &#39;{ </span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">Status</span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">: </span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">SUCCESS</span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">, </span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">PhysicalResourceId</span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">: </span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">&quot;</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">physical_resource_id</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">, </span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">StackId</span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">: </span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">&quot;</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">StackId</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">, </span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">RequestId</span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">: </span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">&quot;</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">RequestId</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">, </span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">LogicalResourceId</span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">: </span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">&quot;</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">LogicalResourceId</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\&quot;</span><span style="color: #e6db74">}&#39; &#39;&quot;</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">ResponseURL</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot;&#39;&quot;</span><span style="color: #f8f8f2">)</span>
 </code></pre></div>
                 
                   
@@ -435,6 +436,10 @@ sudo yum install s3fs-fuse
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            CopyLeft <img src=https://mirrors.creativecommons.org/presskit/icons/cc.svg width="25" height="25"> 2020 - ConJdeRumba
+          </div>
         
         powered by
         <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>

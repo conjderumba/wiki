@@ -57,6 +57,8 @@
     <link rel="stylesheet" href="../assets/fonts/material-icons.css">
     
     
+      <link rel="stylesheet" href="../stylesheets/mkdocs-material-dark-theme/extra.css">
+    
     
       
     
@@ -366,50 +368,44 @@
                 
                 <h1 id="generic">Generic</h1>
 <h2 id="did-you-forget-to-sudo-vi">Did you forget to sudo vi?</h2>
-<div class="codehilite"><pre><span></span><code>:w !sudo tee <span class="s2">&quot;%&quot;</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>:w !sudo tee <span style="color: #e6db74">&quot;%&quot;</span>
 </code></pre></div>
-
 
 <h2 id="find-and-kill-processes-with-certain-name">Find and kill processes with certain name</h2>
-<div class="codehilite"><pre><span></span><code><span class="k">for</span> pid in <span class="k">$(</span>ps -aux <span class="p">|</span> grep <span class="s2">&quot;&lt;eg: python follower&gt;&quot;</span> <span class="p">|</span> awk <span class="o">{</span><span class="s1">&#39;print $2&#39;</span><span class="o">}</span><span class="k">)</span><span class="p">;</span> <span class="k">do</span> <span class="nb">kill</span> <span class="nv">$pid</span><span class="p">;</span> <span class="k">done</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">for</span> pid in <span style="color: #66d9ef">$(</span>ps -aux <span style="color: #f8f8f2">|</span> grep <span style="color: #e6db74">&quot;&lt;eg: python follower&gt;&quot;</span> <span style="color: #f8f8f2">|</span> awk <span style="color: #f92672">{</span><span style="color: #e6db74">&#39;print $2&#39;</span><span style="color: #f92672">}</span><span style="color: #66d9ef">)</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">do</span> <span style="color: #f8f8f2">kill</span> <span style="color: #f8f8f2">$pid;</span> <span style="color: #66d9ef">done</span>
 </code></pre></div>
-
 
 <h2 id="add-and-delete-linux-users-with-pem">Add and delete Linux users with PEM</h2>
 <h3 id="add-user">Add user</h3>
-<div class="codehilite"><pre><span></span><code>sudo adduser &lt;username&gt;
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>sudo adduser &lt;username&gt;
 sudo su &lt;username&gt;
-<span class="nb">cd</span>
+<span style="color: #f8f8f2">cd</span>
 mkdir .ssh
-chmod <span class="m">700</span> .ssh
-<span class="nb">cd</span>
+chmod <span style="color: #ae81ff">700</span> .ssh
+<span style="color: #f8f8f2">cd</span>
 touch .ssh/authorized_keys
-chmod <span class="m">600</span> .ssh/authorized_keys
-<span class="c1">#AÑADIR LA CLAVE QUE QUERAMOS, cuidado con los saltos de línea, tiene que ir todo en una sola linea</span>
-<span class="nb">echo</span> <span class="s2">&quot;ssh-rsa yStyZ7kEuyhgD3U/bqRyFFlOEB/6TGpKTv3V8GgrMa8evVO8l34563trfeafewa525rV58vp1N5TSMpxl0+CWchCkimBx6Fo2meFm7xqR7Z fffff&quot;</span> &gt;&gt; ~/.ssh/authorized_keys
+chmod <span style="color: #ae81ff">600</span> .ssh/authorized_keys
+<span style="color: #75715e">#AÑADIR LA CLAVE QUE QUERAMOS, cuidado con los saltos de línea, tiene que ir todo en una sola linea</span>
+<span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;ssh-rsa yStyZ7kEuyhgD3U/bqRyFFlOEB/6TGpKTv3V8GgrMa8evVO8l34563trfeafewa525rV58vp1N5TSMpxl0+CWchCkimBx6Fo2meFm7xqR7Z fffff&quot;</span> &gt;&gt; ~/.ssh/authorized_keys
 </code></pre></div>
-
 
 <h3 id="delete-user">Delete user</h3>
-<div class="codehilite"><pre><span></span><code>sudo userdel -r &lt;userame&gt;
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>sudo userdel -r &lt;userame&gt;
 </code></pre></div>
-
 
 <h2 id="home-end-keys-not-working-on-oh-my-zsh">Home - End keys not working on oh-my-zsh</h2>
 <p>Add this to <code>~/.zshrc</code></p>
-<div class="codehilite"><pre><span></span><code>bindkey  <span class="s2">&quot;^[[1~&quot;</span>   beginning-of-line
-bindkey  <span class="s2">&quot;^[[4~&quot;</span>   end-of-line
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>bindkey  <span style="color: #e6db74">&quot;^[[1~&quot;</span>   beginning-of-line
+bindkey  <span style="color: #e6db74">&quot;^[[4~&quot;</span>   end-of-line
 </code></pre></div>
-
 
 <h1 id="oracle">Oracle</h1>
 <h2 id="visualization">Visualization</h2>
-<div class="codehilite"><pre><span></span><code><span class="o">&gt;</span> <span class="n">sqplus</span> <span class="o">/</span> <span class="k">as</span> <span class="n">sysdba</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">sqplus</span> <span style="color: #f92672">/</span> <span style="color: #66d9ef">as</span> <span style="color: #f8f8f2">sysdba</span>
 
-<span class="k">SQL</span><span class="o">&gt;</span> <span class="k">set</span> <span class="n">lines</span> <span class="mi">300</span> <span class="n">pages</span> <span class="mi">30000</span>
-<span class="k">SQL</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">v$instance</span><span class="p">;</span>
+<span style="color: #66d9ef">SQL</span><span style="color: #f92672">&gt;</span> <span style="color: #66d9ef">set</span> <span style="color: #f8f8f2">lines</span> <span style="color: #ae81ff">300</span> <span style="color: #f8f8f2">pages</span> <span style="color: #ae81ff">30000</span>
+<span style="color: #66d9ef">SQL</span><span style="color: #f92672">&gt;</span> <span style="color: #66d9ef">select</span> <span style="color: #f92672">*</span> <span style="color: #66d9ef">from</span> <span style="color: #f8f8f2">v$instance;</span>
 </code></pre></div>
-
 
 <h2 id="import-and-export-schema">Import and Export Schema</h2>
 <p>For both import and export process, the folder must exists both defined as Oracle directories and in the filesystem.</p>
@@ -418,17 +414,15 @@ bindkey  <span class="s2">&quot;^[[4~&quot;</span>   end-of-line
 <p class="admonition-title">Note</p>
 <p>The schema will be created if it doesn't exists, and it should have the same password as the origin schema.</p>
 </div>
-<div class="codehilite"><pre><span></span><code><span class="k">SQL</span><span class="o">&gt;</span> <span class="n">impdp</span> <span class="n">sys</span><span class="o">/</span><span class="n">pass</span> <span class="n">remap_schema</span><span class="o">=</span><span class="n">SOURCE_SCHEMA</span><span class="p">:</span><span class="n">DEST_SCHEMA</span> <span class="n">directory</span><span class="o">=</span><span class="n">exp_dir</span> <span class="n">dumpfile</span><span class="o">=</span><span class="n">DUMP_FILENAME</span><span class="p">.</span><span class="n">dmp</span> <span class="n">logfile</span><span class="o">=</span><span class="n">impdp_DUMP_FILENAME</span><span class="p">.</span><span class="n">log</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">SQL</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">impdp</span> <span style="color: #f8f8f2">sys</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">pass</span> <span style="color: #f8f8f2">remap_schema</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">SOURCE_SCHEMA:DEST_SCHEMA</span> <span style="color: #f8f8f2">directory</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">exp_dir</span> <span style="color: #f8f8f2">dumpfile</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">DUMP_FILENAME.dmp</span> <span style="color: #f8f8f2">logfile</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">impdp_DUMP_FILENAME.log</span>
 </code></pre></div>
-
 
 <h3 id="export">Export</h3>
-<div class="codehilite"><pre><span></span><code><span class="k">SQL</span><span class="o">&gt;</span> <span class="n">expdp</span> <span class="n">SCHEMA_TO_EXPORT</span><span class="o">/</span><span class="n">PASSWORD</span> <span class="n">directory</span><span class="o">=</span><span class="n">exp_dir</span> <span class="n">dumpfile</span><span class="o">=</span><span class="n">DUMP_FILENAME</span><span class="p">.</span><span class="n">dmp</span> <span class="n">logfile</span><span class="o">=</span><span class="n">export_DUMP_FILENAME</span><span class="p">.</span><span class="n">log</span> <span class="n">filesize</span><span class="o">=</span><span class="mi">1</span><span class="k">g</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">SQL</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">expdp</span> <span style="color: #f8f8f2">SCHEMA_TO_EXPORT</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">PASSWORD</span> <span style="color: #f8f8f2">directory</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">exp_dir</span> <span style="color: #f8f8f2">dumpfile</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">DUMP_FILENAME.dmp</span> <span style="color: #f8f8f2">logfile</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">export_DUMP_FILENAME.log</span> <span style="color: #f8f8f2">filesize</span><span style="color: #f92672">=</span><span style="color: #ae81ff">1</span><span style="color: #66d9ef">g</span>
 </code></pre></div>
 
-
 <h3 id="show-active-databases">Show active databases</h3>
-<div class="codehilite"><pre><span></span><code><span class="k">SQL</span><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">INSTANCE_NAME</span><span class="p">,</span> <span class="n">DATABASE_STATUS</span><span class="p">,</span> <span class="n">INSTANCE_ROLE</span> <span class="k">from</span> <span class="n">v$instance</span><span class="p">;</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">SQL</span><span style="color: #f92672">&gt;</span> <span style="color: #66d9ef">SELECT</span> <span style="color: #f8f8f2">INSTANCE_NAME,</span> <span style="color: #f8f8f2">DATABASE_STATUS,</span> <span style="color: #f8f8f2">INSTANCE_ROLE</span> <span style="color: #66d9ef">from</span> <span style="color: #f8f8f2">v$instance;</span>
 </code></pre></div>
                 
                   
@@ -472,6 +466,10 @@ bindkey  <span class="s2">&quot;^[[4~&quot;</span>   end-of-line
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            CopyLeft <img src=https://mirrors.creativecommons.org/presskit/icons/cc.svg width="25" height="25"> 2020 - ConJdeRumba
+          </div>
         
         powered by
         <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
