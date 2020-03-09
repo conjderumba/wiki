@@ -119,3 +119,14 @@ div.superfences-content pre {
 @media only screen and (max-width: 76.1875em) {
 	
 }
+.admonition.note { /* csslint allow: adjoining-classes */
+    border-left-color: #428bca;
+}
+
+.admonition.warning { /* csslint allow: adjoining-classes */
+    border-left-color: #f0ad4e;
+}
+
+.admonition.danger { /* csslint allow: adjoining-classes */
+    border-left-color: #d9534f;
+}
